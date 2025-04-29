@@ -16,10 +16,6 @@ public class Cuenta {
           this.numeroCuenta = numeroCuenta;
           this.saldo = saldo;
      }
-     
-     public void depositarSaldo(int deposito){
-          saldo += deposito;
-     }
 
      public void agregarSaldo(double monto){
           saldo += monto;
