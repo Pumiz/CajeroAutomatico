@@ -17,28 +17,35 @@ public class DispensadorBilletes {
      private List<Billete> billetes1000 = new ArrayList<>();
      private List<Billete> billetes2000 = new ArrayList<>();
      private List<Billete> billetes10000 = new ArrayList<>();
-     
-     
-     
 
-     public void addBilletes500(Billete billete500) {
-          billetes500.add(billete500);
+     public boolean addBilletes500(Billete billete500) {
+          return billetes500.add(billete500);
      }
 
-     public void addBilletes1000(Billete billete1000) {
-          billetes1000.add(billete1000);
+     public boolean addBilletes1000(Billete billete1000) {
+          return billetes1000.add(billete1000);
      }
 
-     public void addBilletes2000(Billete billete2000) {
-          billetes2000.add(billete2000);
+     public boolean addBilletes2000(Billete billete2000) {
+          return billetes2000.add(billete2000);
      }
 
-     public void addBilletes10000(Billete billete10000) {
-          billetes10000.add(billete10000);
+     public boolean addBilletes10000(Billete billete10000) {
+          return billetes10000.add(billete10000);
      }
-     
-     
 
+     public List<Billete> getBilletes10000() {
+          return billetes10000;
+     }
 
-     
+     public List<Billete> getBilletes1000() {
+          return billetes1000;
+     }
+
+     public List<Billete> getBilletes2000() {
+          return billetes2000;
+     }
+
+     public List<Billete> getBilletes500 (){ return billetes500; }
+
 }
