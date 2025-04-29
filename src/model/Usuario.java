@@ -31,8 +31,6 @@ public class Usuario {
           return numeroTarjeta;
      }
 
-     
-     
      public void setCuenta(Cuenta cuenta) {
           this.cuenta = cuenta;
      }
