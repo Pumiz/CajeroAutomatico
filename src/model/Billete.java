@@ -10,11 +10,11 @@ package model;
  */
 public class Billete {
      private int valor;
-     private String numeroSerie;
+     //private int numeroSerie;
 
-     public Billete(int valor, String numeroSerie) {
+     public Billete(int valor) {
           this.valor = valor;
-          this.numeroSerie = numeroSerie;
+          //this.numeroSerie = numeroSerie;
      }
      
      
