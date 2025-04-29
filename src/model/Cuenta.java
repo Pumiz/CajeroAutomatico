@@ -41,10 +41,4 @@ public class Cuenta {
      public String consultarNumeroCuenta(){
           return numeroCuenta;
      }
-
-
-     
-     
-             
-     
 }
