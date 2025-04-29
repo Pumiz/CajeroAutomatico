@@ -20,8 +20,11 @@ public class Cuenta {
      public void depositarSaldo(int deposito){
           saldo += deposito;
      }
-     
-     
+
+     public void agregarSaldo(double monto){
+          saldo += monto;
+     }
+
      public void retirarSaldo(int retiro) throws Exception {
           if (saldo >= retiro){
                saldo -= retiro;
@@ -38,6 +41,8 @@ public class Cuenta {
      public String consultarNumeroCuenta(){
           return numeroCuenta;
      }
+
+
      
      
              
