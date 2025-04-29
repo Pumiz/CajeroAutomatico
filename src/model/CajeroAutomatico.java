@@ -45,7 +45,6 @@ public class CajeroAutomatico {
      
      public boolean verificarPin(int pinTeclado, int numeroTarjeta) throws Exception{
           Usuario usuario = verificarTerjeta(numeroTarjeta);
-
           
           if (usuario.getPin() == pinTeclado){
              return true;  
@@ -54,21 +53,41 @@ public class CajeroAutomatico {
           }
      }
      
-     public double mostrarSaldoCuenta(Cuenta cuenta){
-          return cuenta.consultarSaldo();
+     public double mostrarSaldoCuenta(int numeroTarjeta){
+          double saldo = 0;
+          for (Usuario usuario: usuarios){
+               if(usuario.getNumeroTarjeta() == numeroTarjeta){
+                    Cuenta cuenta = usuario.getCuenta();
+                    saldo = cuenta.consultarSaldo();
+               }
+          }
+
+          return saldo;
      }
-     
+
+     public double agregarSaldo(double monto, int numeroTarjeta){
+          double nvoSaldo = 0;
+          for (Usuario usuario: usuarios){
+               if(usuario.getNumeroTarjeta() == numeroTarjeta){
+                    Cuenta cuenta = usuario.getCuenta();
+                    cuenta.agregarSaldo(monto);
+                    nvoSaldo = mostrarSaldoCuenta(numeroTarjeta);
+               }
+          }
+          return nvoSaldo;
+     }
+
      /*
      public void retirarDinero(int cantidadRetirar, Usuario usuario){
           Cuenta cuentaUsuario = usuario.getCuenta();
           cuentaUsuario.retirarSaldo(cantidadRetirar);
-          
+
           usuario.setCuenta(cuentaUsuario);
-         
-     
+
+
      }
      */
-     
+
      public void retirarDinero(int cantidadRetirar, Usuario usuario){
           
           try {
