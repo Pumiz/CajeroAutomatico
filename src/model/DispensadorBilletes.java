@@ -48,4 +48,68 @@ public class DispensadorBilletes {
 
      public List<Billete> getBilletes500 (){ return billetes500; }
 
+     public static boolean gestorEntregaBilletes(int montoRetiro){
+          int billeteMenorDenominacion = 500;
+          int billeteMayorDenominacion = 10000;
+          int maxCantidadEntregaBilletes = 10;  //Cantidad maxima de billetes que salen por la boca de cajero
+
+          int entregaBillete10mil = 0;
+          int entregaBillete2mil = 0;
+          int entregaBilleteMil = 0;
+          int entregaBilleteQuini = 0;
+
+          boolean state = true; //false para cambiar cuando se termine de entregar los billetes
+          int montoRetiroRestante = montoRetiro;
+
+/*          while(montoRetiro==montoRetiroRestante){
+
+          }*/
+               for(int i=0; i <= maxCantidadEntregaBilletes; i++) {
+                    // && verificar que hayan billetes en la lista
+                    // Este if se usa porque por lo general se sacan varios billetes de mas alta denominacion y
+                    // solo 1 o ninguno de menor denominacion.
+
+/*                         montoRetiroRestante -= billeteMayorDenominacion;
+                         entregaBillete10mil += 1;
+                         if (montoRetiroRestante < billeteMayorDenominacion) {
+                              state = true;
+                              System.out.println("Cantidad billetes entregados de $10000: " + entregaBillete10mil);
+                              System.out.println(montoRetiroRestante);
+                              break;
+                         }*/
+
+
+                         while (montoRetiroRestante >= 10000) {
+                              montoRetiroRestante -= 10000;
+                              entregaBillete10mil += 1;
+
+                         }
+                    System.out.println("Cantidad billetes entregados de $10000: " + entregaBillete10mil);
+                    System.out.println(montoRetiroRestante);
+                    while (montoRetiroRestante >= 2000) {
+                              montoRetiroRestante -= 2000;
+                              entregaBillete2mil += 1;
+
+                    }
+                    System.out.println("Cantidad billetes entregados de $2000: " + entregaBillete2mil);
+                    System.out.println(montoRetiroRestante);
+                    while (montoRetiroRestante >= 1000) {
+                         montoRetiroRestante -= 1000;
+                         entregaBilleteMil += 1;
+                    }
+                    System.out.println("Cantidad billetes entregados de $1000: " + entregaBilleteMil);
+                    while (montoRetiroRestante == 500) {
+                              entregaBilleteQuini += 1;
+                         }
+                    System.out.println("Cantidad billetes entregados de $500: " + entregaBilleteQuini);
+                    System.out.println(montoRetiroRestante);
+
+
+                         if (montoRetiroRestante == 0) break;
+
+               }
+
+          return state;
+     }
+
 }
