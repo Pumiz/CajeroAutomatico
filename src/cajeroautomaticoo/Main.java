@@ -29,6 +29,9 @@ public class Main {
 
           CajeroAutomatico cajeroLink = new CajeroAutomatico("Link01", dispenser);
 
+          int opcion;
+
+
           try {
                System.out.println("Ingrese un numero de tarjeta: ");
                int nTarjeta = scan.nextInt();
@@ -38,7 +41,6 @@ public class Main {
                int pin = scan.nextInt();
                cajeroLink.verificarPin(pin, nTarjeta);
 
-                    int opcion;
                     do {
                          System.out.println("\n------ Menú Principal ------");
                          System.out.println("1. Consultar saldo");
@@ -50,7 +52,7 @@ public class Main {
 
                          switch (opcion) {
                               case 1:
-                                   double saldo = cajeroLink.mostrarSaldoCuenta(nTarjeta);
+                                   double saldo = cajeroLink.getSaldoCuenta(nTarjeta);
                                    System.out.println("Su saldo actual es: $" + saldo);
                                    break;
 
@@ -63,21 +65,23 @@ public class Main {
                                         System.out.println("Su saldo actual es de: $" + nvoSaldo);
                                    }
                                    break;
-                                   /*
+
                               case 3:
                                    System.out.print("Ingrese la cantidad a retirar: ");
-                                   double retiro = sc.nextDouble();
-                                   if (retiro > 0 && retiro <= saldo) {
-                                        saldo -= retiro;
-                                        System.out.println("Retiro exitoso. Nuevo saldo: $" + saldo);
+                                   int retiro = scan.nextInt();
+                                   if (retiro > 0 && retiro <= cajeroLink.getSaldoCuenta(nTarjeta)) {
+                                        if(dispenser.gestorEntregaBilletes(retiro)){
+                                             double nvoSaldo = cajeroLink.retirarSaldo(retiro, nTarjeta);
+                                        }
+                                        System.out.println("Retiro exitoso. Su nuevo saldo es: $" + cajeroLink.getSaldoCuenta(nTarjeta));
                                    } else {
-                                        System.out.println("Fondos insuficientes o cantidad inválida.");
+                                        System.out.println("Fondos insuficientes.");
                                    }
                                    break;
+
                               case 4:
                                    System.out.println("Gracias por usar el cajero. ¡Hasta luego!");
                                    break;
-                                   */
 
                               default:
                                    System.out.println("Opción no válida.");
