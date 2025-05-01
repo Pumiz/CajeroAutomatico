@@ -6,7 +6,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.Usuario;
 
 /**
  *
@@ -53,7 +52,7 @@ public class CajeroAutomatico {
           }
      }
      
-     public double mostrarSaldoCuenta(int numeroTarjeta){
+     public double getSaldoCuenta(int numeroTarjeta){
           double saldo = 0;
           for (Usuario usuario: usuarios){
                if(usuario.getNumeroTarjeta() == numeroTarjeta){
@@ -71,33 +70,26 @@ public class CajeroAutomatico {
                if(usuario.getNumeroTarjeta() == numeroTarjeta){
                     Cuenta cuenta = usuario.getCuenta();
                     cuenta.agregarSaldo(monto);
-                    nvoSaldo = mostrarSaldoCuenta(numeroTarjeta);
+                    nvoSaldo = getSaldoCuenta(numeroTarjeta);
                }
           }
           return nvoSaldo;
      }
 
-     /*
-     public void retirarDinero(int cantidadRetirar, Usuario usuario){
-          Cuenta cuentaUsuario = usuario.getCuenta();
-          cuentaUsuario.retirarSaldo(cantidadRetirar);
-
-          usuario.setCuenta(cuentaUsuario);
-
-
-     }
-     */
-
-     public void retirarDinero(int cantidadRetirar, Usuario usuario){
-          
-          try {
-               usuario.getCuenta().retirarSaldo(cantidadRetirar);
-          } catch (Exception e){
-               System.out.println(e.getMessage());
+     public double retirarSaldo(int monto, int numeroTarjeta){
+          double nvoSaldo = 0;
+          if(monto >= 500) { //Billete menor demonimacion        NO ANDA BIEN ESTE IF
+               for (Usuario usuario : usuarios) {
+                    if (usuario.getNumeroTarjeta() == numeroTarjeta) {
+                         Cuenta cuenta = usuario.getCuenta();
+                         cuenta.retirarSaldo(monto);
+                         nvoSaldo = getSaldoCuenta(numeroTarjeta);
+                    }
+               }
+          } else {
+               System.out.println("El cajero no puede entregar menos de $500");
           }
-          
-          
-          
+          return nvoSaldo;
      }
      
      
