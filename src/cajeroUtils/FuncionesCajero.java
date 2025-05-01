@@ -42,7 +42,6 @@ public class FuncionesCajero {
         return state;
     }
 
-
     /*
     public static String numSerieAutoincremental(DispensadorBilletes dispenser, int valorBillete){
         List<Billete> listaBilletes = new ArrayList<>();

@@ -15,7 +15,7 @@ public class Usuario {
 
      public Usuario(int numeroTarjeta, int pin) {
           this.numeroTarjeta = numeroTarjeta;
-          this.cuenta = new Cuenta("CajaAhorro01", 10000);
+          this.cuenta = new Cuenta("CajaAhorro01", 100000);
           this.pin = pin;
      }
 

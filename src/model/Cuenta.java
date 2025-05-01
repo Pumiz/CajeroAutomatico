@@ -21,13 +21,8 @@ public class Cuenta {
           saldo += monto;
      }
 
-     public void retirarSaldo(int retiro) throws Exception {
-          if (saldo >= retiro){
-               saldo -= retiro;
-          } else {
-               throw new Exception ("El saldo es insufiente.");
-          }
-          
+     public void retirarSaldo(int retiro) {
+          saldo -= retiro;
      }
      
      public double consultarSaldo(){
